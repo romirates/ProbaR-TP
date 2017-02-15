@@ -14,3 +14,10 @@ auplus3carreaux<-choose(24,2)*choose(30,3)
 couleur<-choose(8,5)*4
 #3) Combien de chances a-t-on de gagner le super jackpot à l’euromillion? (5 numéros parmi 49, et 2 numéros étoilés parmi 10, l’ordre ne compte pas).
 euromillion<- choose(49, 5)*choose(10, 2)
+#4) Pour k = 1, 2, 3, 4, 5, 6, taper choose(k, 0:k) puis sum(choose(k, 0:k)).
+tab1 <-choose(1, 0:1)
+tab2 <-choose(2, 0:2)
+tab3 <-choose(3, 0:3)
+tab4 <-choose(4, 0:4)
+tab5 <-choose(5, 0:5)
+tab6 <-choose(6, 0:6)
