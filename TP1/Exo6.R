@@ -5,7 +5,7 @@ u <- rep(1, 100)
 #En utilisant la boucle for, assigner a un+2 la valeur u n+1 + u n .
 for(i in 1:(length(u)-2)){u[i+2]<-u[i+1] + u[i]}
 #En utilisant la commande plot repr ́esenter la suite (u n ) sur un graphique.
-plot(1:100,u,main="Suite de Fibonacci", xlabel="valeurs de 1 à 100", col="blue",)
+plot(1:100,u,main="Suite de Fibonacci", xlab="valeurs de 1 à 100", ylab="Un+2=Un+1+Un", col="blue",)
 #Représenter également la fonction v = ln(un) sur un graphique
 v = log(u, base=exp(1))
-plot(1:100, v, main = "Log népérien de la Suite de Fibonacci", xlabel="valeurs de 1 à 100", col="red")
+plot(1:100, v, main = "Log népérien de la Suite de Fibonacci", xlab="valeurs de 1 à 100", ylab="ln(Un)", col="red")
