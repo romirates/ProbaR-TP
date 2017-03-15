@@ -20,7 +20,7 @@ g = function(n)
 simule = function(N, n)
 { NV = rep(0, N)
   x = 0
-  for (k in 1:N){ V[k] = g(n)}
+  for (k in 1:N){ NV[k] = g(n)}
   x = sum(NV)/N
   return(x)
   }

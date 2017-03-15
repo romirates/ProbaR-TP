@@ -1,0 +1,848 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>R_TP0</title>
+
+
+</head>
+
+<body style="font-family: sans-serif;
+   background-color: khaki;
+   font-size: 16px;
+   margin: 8px;">
+   
+<pre style="background-color: lightyellow;"><code>#   DECOUVERTE de R 
+getwd()# Donne la localisation du dossier  de travail de R
+setwd(&quot;Z:&quot;) # Pour aller chez vous en TP sous WINDOWS
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] &quot;Z:&quot;
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>dir.create(&quot;TP_R&quot;) # creationde dossier
+setwd(&quot;TP_R&quot;) # Pour aller au dossier de travail  TP_R crée
+dir() # Liste des fichiers et des dossiers 
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;"> 
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code> mot = getwd() # Création d'une variable 
+mot # affichage de la variable crée
+Adresse = paste(mot,&quot;/R_demo0.R&quot;, sep=&quot;&quot;) # Nouvelle variable 
+Adresse # affichage de la variable crée
+#download.file(&quot;http://www.math.sciences.univ-nantes.fr/~morame/donnees/R_demo0.R&quot;, destfile=Adresse)
+# Copier le fichier R_demo0.R dans le dossier TP_R crée
+dir()
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] &quot;R_demo0.R&quot;
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>#system(&quot;cat R_demo0.R&quot;) # system() permet d&#39;executer des commandes du systeme (Linux ou Windows) 
+# Ouvrer à la main le fichier R_demo0.R
+source(&quot;R_demo0.R&quot;) # Execute des commandes R contenues dans le fichier
+</code></pre>
+
+
+
+<div style="background-color: #FFEFD5;">
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAeFBMVEUAAAAAADoAAGYAAP8AOjoAOpAAZrY6AAA6ADo6AGY6OmY6OpA6ZrY6kNtmAABmADpmAGZmOgBmOpBmZmZmtv+QOgCQOjqQOmaQZgCQtpCQ29uQ2/+2ZgC2/7a2///bkDrb/9vb////AAD/tmb/25D//7b//9v///+YCWgEAAAACXBIWXMAAAsSAAALEgHS3X78AAAOBklEQVR4nO3dAVPbyBmHcVNa0isJd23h0ib0uIDB3/8bNrINtmxJ1u6+q313/88zc5PMcFYMP3ZXFni12pBkq9JPgMoEvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aMCLBrxowIsGvGjAiwa8aCnwK/JcRviEx1LugBcNeNGAFw140YAXDXjRgBcNeNGAF60s/PX1dcI/QAkVhb/e/0fLB7xowIvGGi8aZ/WiAS8a8KIBLxrwogEvGvCilYfntXyRisNz9a5MzcMzoQzXOjwTykjF4TMPSeBHKg+fN+BHah2eNX6k5uFpOOBFA1404EVLhl9/2u6v8Jc/Ih5L5UqFf3u43/758rcfwY+lgqXCv/72R+/Po54jnxItUc4R/wy935LX+Ne7iTU&eacute;ebdlPqtH3mu5X84x3TvNCv7o5O5kCz3kXbbABRzkPbbElTume4dZXLm7+j74Ov7osci7y+J1/NvDlwvwyLvL5srd480FeKZ7bxlduXv66y/T8Ax6ZxlcufvS/fF0funu9LHIe2rJn8cz3Ttq2V/EQN5NC/8GDoPeS4v/6hXyPlr+
+ d+6Qd9Fi8Ic3NjDde2gp+N5bmZAvXxF45MtXBp7pvngF1vhdyJet3DtpkC9awbdQMd2XrOh755AvV9k3TSJfrMLvlmW6L1Xxt0mny7PZSUzF4ZMHPdsbRVUefvagHxnZwEflAX6e/Bgw8FG5gJ813Y8Cs8bH5AN+zqCfHtnoB+YFfo78hC3zfWhu4NPO7oEPzQ980kt64EPzBJ8kzxoflit4ruAuly94fmyzWN7gkV8od/BM98vkD55Bv0ge4Rn0C+QSnkGfP6fwyOfOYg+cbjvb8z2M0+CZ7jNnAL/d92j9OfyxF0I+Zwbw69sfl/a5iwv5jCXD3119+9qN+NsMd6hgus9X+snd28PqZvOS6Z40yOfK61n9e8hnyjv8AtO95k90reDH96tPLrO86O9wuB/xm9zywEd8ONtj+2Wd7oGP+HC2x542JG+1NrPGh38422PPOh/0oiPVqvQLOPszucu7Vyd2Kg98Uskjvrs9RexjwzqRBz6p9Kn+9dfv0Y8N62S611ybrapljd9ld3Yv/11TF7yZPOtEZfBWL+mBrw3eaNADXx+8kTxrfMqHsz12Mn4/w6Aa4fkpvUF1wl+Wl5/KL1UpfH+6P1fm5O1StcIfD/oBZeAvVS/8YdADH1HF8B+DfkiZNf5CVcN/yKMcXN3wM17SB3xTSH3/VA5/8YVdwGKvdV5QPfwF&eacute;eBH8g0/a/KdnO6BH8k1/FyKSXnW+MGagOfafXhtwPMDu+Bcw4dMvsiH5Rs+JOSDag&eacute;e6T6ohuAZ9CE1Bc+gn19b8Az62bUGj/zMmoNnup9Xe/D2g77JS7ktwhvLt/nDmybhbad74G0PnTdD&eacute;eBtD505S3nWeMtD546z+8mS4defRvY+Kg3PS/rJUuHfHu63f76c36KiODzyEyVvd7bfwzbHjQrSY7ofrekRv2HQj5a8xu93OPS4xm9j0A/X7ln9R8gPJQCP/FBW8BlvVJAe0/15
+ CiN+w6A/TwQe+dNU4JnuT5KBZ9D3S75yt9iNCtJD/qjkEb/cjQrSY7o/lD7VL3ejgtMifk6O/HsVr/FRvxmD/D41eKb7fXLwDPpdFcNH/y4cg35TN3x8yIvCI68Kz3SvCi8/6HXhxeWF4bWne2V46UGvDS8sLw6vO92rw/duatTiu2LHAv5Dvs33wY8F/Md0D/z8D2d77MJt5YGf/+Fsj1267aBnjZ/94WyPXT61s3vg3xOTB/6jlJf09a0SwB8VLR93Xlj0uwX442Llo+DLvooAvlfkdA+81WPLFSkfMWsD7yu7s/tL3w2s8b6y+oGd7yuBwA9kIw/8og3On6GTqok88Es2+NUOJzCZ7l1f1QF+pNav4AI/1sxB73pYT9QavM0av2uOvO+FfKLm4C2bIS8L3+1o2W2AdL55dQPwM6b7y/BO1wID+O1upuvP4Y+tocvyly7PbXxOCQbw69sfXm9UYFDq2X3V8K93N2P/w+vd1bev3Yi/9XmjgvQSX9JXDb/ZvKxWVyO7mr09rG42L25vVGDQmXzQsl39Gv8TeHVveOiKOpGfO4idku+aCb/+1I34gYU8/tA11Z/uZ8J7neR3zVzjB16t9XN9owKDjuV14LMcurJ68rPmcODbKPzsvoU1fjzHtxi1rqkf2KXCe7/hoGkt7aJgca3++M+Qx1ZYO/KM+LCakU9e473fYtS6VqZ7zuqDa0Me+PCakAc+ohame+CjipJ3dUEH+Lgi5H1dwgU+sogruBvgm+g5cOYGvo2ufw76QHnW+BbqECs+uwc+tu3MXa888NFtZ+5qX9IDvy1h+Z2Ud7Ws9wK+6/SEO8hrQt7XiXwv4LtOgAK9xqd74J2XBj8+6IH3Xn9uj9g6ZdZxPQX8UOFek2f3HvmBt2pc3uWED7xZdZ3iAW/X2HQPfPONybPGt149V3CBN64W&eacute;eCtq0Q&eacute;ePPqmO6Bz1AN8sDnqAJ54LPkf7oHPlPe5YH
+ fZ36Rxbk88LsyXFb1Pd0DvyvL9XTP8sDvyvODFMfy7Hq1L88PUnJN9+nPlj1wMpdF3mB+Yter3OUY9A7gGfGXs5d3AC+361VMGeSLr/GZHttYDl/SA79M7uSt4Fvfrz6kwXnYmzwj3ryRMy9n0z3w5o2ecruS58qd&eacute;eOvtTzJ8zrevvHXWo6me67cLZsbeUb8wnmR58rd0jmZ7jmrXz4X8sAXKGLQm/+6APBFCpW3/wUh4CfK+PbmQHnglyzrhgZh0z3wS5Z5J4swedb45cq9hUnRs3vgJ8q9hUnJl/TAF62cPPBlKyYPfOHSpvv4xQj44iXIJ5x+Al++eHng6y56uge+9qLlt2t8zEoPvI8+Bn0EYtS4B95LO/kYRODrbisPvGDddB+FyBpfe8/LbXEOvKsMr+Be+A4C3ldmP7C7tGYA7y0j&eacute;eCry0Ye+Pqyme5Z4ytsgZ/SA++y/PLA+yz7r+MB77XM8sC7Le+gB95xOeWB91xGeYutULq9Ec43xADeoHzTvQH8dvub9efwx9KMcskbwK9vf7D5Ub4yySfD3119+9qN+Fs2P8pUnuk+/eTu7WF1s3lh86OM5ZDnrL6GMsgDX0X2070VPCd3mbOWZ8TXkrF8Bnj5GxVkyna6T4Zn2/LlspRPhWcT4yUzHPQW1+qP/wx5LIVnJs+Irywr+eQ1nm3LF85ouuflXH2ZyANfYRbyNvBPX+IfS+EZTPfA11myPPCVlirPGl9ridM98PWWJA98xaXIA19zCdM98HUXLQ+81yY2Njj+UOygB95pE1uZnHwoTh54p82Hj5MH3mkB8FHTPfBem7nG7wqXB76NguWBd1jMfrah0z3w/oq84UiYPPD+ir3TTJA88P6KvsVQyHQPvMPi96yfLw98W82WB76x5k73wDfXPHng22vWoAe+xWbIA99kl+WBb7OL0z3wrXZBHvhmm5YHvt0mp3vgW25CHvimG5dn16u2G53u2Q
+ On9Ubk2fWq+YblGfHtNzjds+uVQgPynNVLdD7ogRfpVN4KnpM7753IM+Jl6k/3GeDZr95rx/KMeKWO5IGX6jDdJ1+5u9vP6+cv5IH32Lt88oh/exja1XLeY6lAe/n0qf711+/Rj6UC7aZ71njBOnngFXu2gmf36sp6fgZetLTfvn4P+OpijRcNeNGAd1X8JiihAe+p6G2PwgPeU8CLBrxqrPGUOeBzttwADg74jC24ZAcHfMYywJvNIcBnzB4+/oin3zHA58x8jY+Gv74+eS7AV1U8/OkDga+r2DkEeNGY6lXj5I62AS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwouWEJ8/lg7c5QN7j8fRy/ct8ZR0dDvhch2vn6QFf9HjA5zoeTy/Xv8xX1tHhgM91uHaeHhdhRANeNOBFA1404EUDXjTgRQNeNOBFA160aPjXu9X+xuKHv6V0OMr602p1b3e4w53QbY739rC6GrlJT8zhfn62AzfqDm/9yx8nR54uFr77Yj7d9P+W0uEo3b2P1n9P/NL2ntRT+vfR0fEe7zcvqd/o/c/2yWDcvOy/fWZrxMJ39xjefZMd/pbS4Sgv3dN+TKQ6flLrf/wzfQLpfbrJHQ63vv1hccjHq//uPtvZGrHw2ye8vS/Z4W8p9Y+SfLyjw739/i19qj/+dP+TPtUfDmc14t+1Z2vEwnez3e4fOPwtpd5Rxu9xGHG4py8Ga/zheOtP99uvrtXTszlD+oCfreFxxL/epbr3n54BvPGne3S4n2czLxZnd0uN+Hxr/HZMpXY43NP2d8xTv5OOPt1/GcAfndGYzJebD/jsa3w3G7+f1X8xOat/P4qFe/9JGYz4o+M9Gkz1R5+t8YifrZH4Or775yxfx/883m6IplIdnp7l6/j9p5sOdTjcy8rgssBmBx+iwZU70YAXDXjRgBcNeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjRgBc
+ N+F2PFm8OqCngd73+9j+Lt8HWE/D7npLfZlVXwO9L3ouhsoDf9/hvqSUe+H3r2z9/lxrywG/r3leZvLNNVQEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwogEvGvCiAS8a8KIBLxrwov0ftRCLOSuxp+QAAAAASUVORK5CYII=" alt="plot of chunk unnamed-chunk-1"/></p>
+
+</div>
+
+<pre style="background-color: lightyellow;"><code> dir() # Vous aurez 2 fichiers suplémentaires
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] &quot;M_dataPlot.pdf&quot;   &quot;M_datas.txt&quot; &quot;R_demo0.R&quot;
+</code></pre>
+
+
+
+<pre style="background-color: lightyellow;"><code>#   Des extraits du cours d&#39;Anne PHILIPPE
+# Sur les vecteurs
+x=c(1,4,9)
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 4 9
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y=c(x,2,3)
+y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 4 9 2 3
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>c(1:4)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 2 3 4
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>c(1.4:7)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1.4 2.4 3.4 4.4 5.4 6.4
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>seq(1.4, 4, by = 0.1)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1] 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0
+   [18] 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>rep(1,4)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 1 1 1
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># Sur les matrices
+x = matrix(c(2,3,5,7,11,13), ncol = 2)
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2]
+   [1,]    2    7
+   [2,]    3   11
+   [3,]    5   13
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y = matrix(c(2,3,5,7,11,13), ncol = 2, byrow = TRUE)
+y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2]
+   [1,]    2    3
+   [2,]    5    7
+   [3,]   11   13
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x ; y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2]
+   [1,]    2    7
+   [2,]    3   11
+   [3,]    5   13
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2]
+   [1,]    2    3
+   [2,]    5    7
+   [3,]   11   13
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x &gt; y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">        [,1]  [,2]
+   [1,] FALSE  TRUE
+   [2,] FALSE  TRUE
+   [3,] FALSE FALSE
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>diag(c(2,3,5,7,11,13))
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2] [,3] [,4] [,5] [,6]
+   [1,]    2    0    0    0    0    0
+   [2,]    0    3    0    0    0    0
+   [3,]    0    0    5    0    0    0
+   [4,]    0    0    0    7    0    0
+   [5,]    0    0    0    0   11    0
+   [6,]    0    0    0    0    0   13
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>toeplitz(1:4)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2] [,3] [,4]
+   [1,]    1    2    3    4
+   [2,]    2    1    2    3
+   [3,]    3    2    1    2
+   [4,]    4    3    2    1
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>toeplitz(c(2,3,5,7,11,13))
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2] [,3] [,4] [,5] [,6]
+   [1,]    2    3    5    7   11   13
+   [2,]    3    2    3    5    7   11
+   [3,]    5    3    2    3    5    7
+   [4,]    7    5    3    2    3    5
+   [5,]   11    7    5    3    2    3
+   [6,]   13   11    7    5    3    2
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>matrix(c(2,3,5,7,11,13), ncol=2, nrow=3)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2]
+   [1,]    2    7
+   [2,]    3   11
+   [3,]    5   13
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>matrix(c(2,3,5,7,11,13), ncol=3, nrow=3)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       [,1] [,2] [,3]
+   [1,]    2    7    2
+   [2,]    3   11    3
+   [3,]    5   13    5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>#Concat&eacute;ner des vecteurs et des matrices
+x = 1:10
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y = x^2
+y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]   1   4   9  16  25  36  49  64  81 100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A = rbind(x, y)
+A
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>B = cbind(x, y)
+B
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">         x   y
+    [1,]  1   1
+    [2,]  2   4
+    [3,]  3   9
+    [4,]  4  16
+    [5,]  5  25
+    [6,]  6  36
+    [7,]  7  49
+    [8,]  8  64
+    [9,]  9  81
+   [10,] 10 100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>dim(A)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1]  2 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>dim(B)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 10  2
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A%*%B # produit matriciel
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       x     y
+   x  385  3025
+   y 3025 25333
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>dim(B%*%A)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 10 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>t(B) # transpos&eacute;e de B
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A*B # produit impossible: A et B n&#39;ont pas la meme taille
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  Error in A * B: non-conformable arrays
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A*t(B) # produit coef. par coef.
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    4    9   16   25   36   49   64   81   100
+   y    1   16   81  256  625 1296 2401 4096 6561 10000
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A + 3
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    4    5    6    7    8    9   10   11   12    13
+   y    4    7   12   19   28   39   52   67   84   103
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A + c(3, 6)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    4    5    6    7    8    9   10   11   12    13
+   y    7   10   15   22   31   42   55   70   87   106
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># Extraire des &eacute;lements d&#39;un vecteur et d&#39;une matrice
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x(3) # Incorrect
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  Error in eval(expr, envir, enclos): could not find function &quot;x&quot;
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x[3]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 3
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A(1,5) # Incorrect
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  Error in eval(expr, envir, enclos): could not find function &quot;A&quot;
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A[1,5]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  x 
+   5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>2*A[1,5]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   x 
+   10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A[1,5] + A[2, 7]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   x 
+   54
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x[2:5]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 2 3 4 5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A[2, 2:5]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1]  4  9 16 25
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A[ , 2:5]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4]
+   x    2    3    4    5
+   y    4    9   16   25
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A[2, ]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]   1   4   9  16  25  36  49  64  81 100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># Op&eacute;ration sur les vecteurs et les matrices
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>sin((pi/2)*x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1.000000e+00  1.224606e-16 -1.000000e+00 -2.449213e-16  1.000000e+00
+    [6]  3.673819e-16 -1.000000e+00 -4.898425e-16  1.000000e+00  6.123032e-16
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+   x    1    2    3    4    5    6    7    8    9    10
+   y    1    4    9   16   25   36   49   64   81   100
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>sin((pi/2)*A)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1]          [,2] [,3]          [,4] [,5]          [,6] [,7]
+   x    1  1.224606e-16   -1 -2.449213e-16    1  3.673819e-16   -1
+   y    1 -2.449213e-16    1 -9.796851e-16    1 -2.204291e-15    1
+              [,8] [,9]        [,10]
+   x -4.898425e-16    1 6.123032e-16
+   y -3.918740e-15    1 9.823956e-16
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>A%*%x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1]
+   x  385
+   y 3025
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>C = A%*%B
+C
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">       x     y
+   x  385  3025
+   y 3025 25333
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>det(B) # Erreur: B non carr&eacute;e
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  Error in determinant.matrix(x, logarithm = TRUE, ...): &#39;x&#39; must be a square matrix
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>det(C)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 602580
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>v=1:2
+v
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 2
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>dim(v) # Erreur: v est un vecteur
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  NULL
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>length(v)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 2
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>v= v +5
+v
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 6 7
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>C%*%v
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">      [,1]
+   x  23485
+   y 195481
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>u = solve(C, v) # Solution x de Cx=v
+u
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">            x           y 
+    0.21710478 -0.02564805
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>C%*%u
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">    [,1]
+   x    6
+   y    7
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>G = solve(C) # L&#39;inverse de C
+G%*%C
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">              x             y
+   x 1.00000e+00 -1.321859e-14
+   y 1.79327e-16  1.000000e+00
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>det(C)*G
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">        x     y
+   x 25333 -3025
+   y -3025   385
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>#   Op&eacute;rations sur les vecteurs
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>sum(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 55
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>z=x[1:5]
+z
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1 2 3 4 5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>prod(z)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 120
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>mean(x)  # moyenne
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 5.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>min(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 1
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>max(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>cumsum(x) # les sommes cumul&eacute;es
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  3  6 10 15 21 28 36 45 55
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y = x - mean(x)
+y
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1] -4.5 -3.5 -2.5 -1.5 -0.5  0.5  1.5  2.5  3.5  4.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>which(y &gt; 0)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1]  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y[which(y &gt; 0)]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 0.5 1.5 2.5 3.5 4.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>which((y - 0.5) == 0)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 6
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>y[which((y - 0.5) == 0)]
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 0.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>r = y[10:1]
+r
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  4.5  3.5  2.5  1.5  0.5 -0.5 -1.5 -2.5 -3.5 -4.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>sort(r) # on ordonne r
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1] -4.5 -3.5 -2.5 -1.5 -0.5  0.5  1.5  2.5  3.5  4.5
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># help(order)
+x
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>xx = c(x, 1:4) # Fusion  de vecteurs
+xx
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10  1  2  3  4
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>sort(xx)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  1  2  2  3  3  4  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>xx = sort(xx)
+unique(xx)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">   [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>which(xx == 3)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 5 6
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># Graphiques
+x = seq( -4.4, -0.1, by=0.1)
+x = c(x, -x)
+y = log(x^2 + 1/x^2)
+length(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 88
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code>plot(x,y)
+</code></pre>
+
+<div style="background-color: #FFEFD5;">
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/></p>
+
+</div>
+
+
+<pre style="background-color: lightyellow;"><code>plot(x, y, main=&quot;y=ln(x^2+1/x^2)&quot;)
+</code></pre>
+
+
+<div style="background-color: #FFEFD5;">
+<p><img src="data:image/png;base64,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&eacute;eyI/xqEq74gx+Cjz/08WPBj+3OKey4xj9++en36EOfPhT5qO6dwvFf1e8fCnxUwIuWJ3yH7xihK/V4H8wJ/P7xyPepz8wBX0DAi5Y5PGt873rMnCf4difw76znjDmD53Z/b31nDPjMA160QuBZ4++ujDV+tyf6nYqZJ4/w3O+7FTVPwOcb8KIVB+9ljb88DPcD7LBv1GazfT10+YIq4ZbkFn78i8o3fOz8eIV3MLeu4aOHAPyVMThe44EXrVh4BxeV70pd47dHAP9sKebFMzy3+/MlmRfg8wt40YqHZ42/UOlr/O4w6B+UbDbcw3O/PyzdbACfVcCLJgTPGn+UzhpPNuUBz1UfSjoLWcCzzofSzgLw2QS8aILwrPFtems8pS8feOmrPv2TzwZ&eacute;ep03ePLA5xDwoinDs8YnPmLUZrN9ybrM4BUve5vnnBe84kJv9JyB9x7wNfCJD9t/s9m+F4/JGp/qqFGbzfYl66Lht7+f6twvqLKCV7rq7Z5rLPzm5bn5azogvNI6b/hcY+G34POnA/hqX/TgLg4J+CSH7r95e8U3LX77zhWfPsfw9Xo2DX8sHljjDfK7xhvtS9ZlCi9w1Rs/xTzhBdZ566cIvNOAv3Ro4KOP33+z2b43j80aH3v4qM1m+5J1wIuWM7zhzbDDoS1vxQOsZBnDG7+f2WFmLN9VG2L2+m8227fr8YGPOUf/zWb7dj0+8DHn6L/ZbN9uJ2CNjzhF1Gazfck64EXLHb68t/AGekaZw5f3pv1Qzwh4ZwHf+RzA9z1P/81m+3Y/CWt8z9NEbTbbl6wDXrQi4Eu53w/5PEqAL+UV3qDPA3g/Ad/jRMD3OFn/zWb73nkm1vj7zxW12Wxfsg540Yq
+ Bz/12P/T4S4HP/QXe4OMH3kfAR5wM+DtP2H+z2b49zsYaf9/5ojab7UvWAS9aUfC53u7HGHdJ8Lm+wBtl3MCPH/CRAX/nSftvNtu35xlZ47ufM2qz2b5kHfCiAS9aefDRC+Y9Bxj0ZEkrDj76JfI9Bxj0ZGkDPuYAwKfeN+6swHc7c//NZvvGnJY1vtOJozab7UvWAS8a8KKVCZ/Hm/ajjrJI+Dz+M924owR+tIBPHvDdzt5/s9m+kbHG3z551Gazfck64EUDXrRy4V2v8+MPrlh416/sHQwO+DFyMDjgx8jB4IqFd7CMXmn8wZULT1cDXjTgRSscfvy19Gs+xlQ2vINXz19yMibgh87JmIA/3qHHbfjOfYAfogFQBvnkSl/h8Hc2CLyPgD8M+I6bzfYdqwHWeCcJwHuC8TOW8uE93YodjQX4IXM0FuCHzNFYyod3tK56GosAPJ0LeNGAF00E3sHa6mAIh8XCr2fVtoe3j332xY8uVQ5eTTsYwlHRV/zmZdp738FyMOsOhnBU/K1+/dfX3vsOlYNZdzCEo1jjhYZwmAg8nQb8vqgr0tnl3CHgd0Wtwd4W8A4pwV+9LE3hHd4QhOCv61jCe7whAP+x2W6NB37Uxpt+4MdtvJWWNZ68BLxoavDD33Qd3uZDYvDDv8zy+MIuBHxxZ+wW8O2Hk9yOzx4FeB8Z4ph+UiVPDf5spvBOk4Q/vQit4J1e7G2K8FZCNp9PRgGf/3l6BXza+/Hh0YD3VtDZC6XV+Tza4Tk8Jglf74RanDo9/O6nSdxPQP/NZvuat4dJLHR0SPcT0H+z2b7mfeKkX+OB95zh7fhjGfGcLHzICsc7ekgaXjngRQNeNOBFA1404EUDXjTgRQNeNOBFA140S3jynB38zU+MvI6rdVjgRQ8LvOhhgRc9LPCihwVe9LDAix6WN2FEA1404EUDXjTgRQNeNOBFA1404EUDXjRT+M3Ls8FRV5OqSn7c9ax6fE99UKOx
+ hqKn1hR+YfGkwy++XP1+4Zdf9i3M4+Ip7TFro7G2RU+tJfzqL38zgF8Gn3niA69/vtWr72+3H3hfJmMNxU+tIfzm179MbvX1lV9327fVj/f0B91mcdgEU2sIv5jarPHXfsF135aPVvDpx1onmVob+HlVPTUXUXL4cNzwQiz5XJpd8QZjbUfrFD60aL+52+JpT9LfR4zWeJOxppna/L6cM5nLcEM2eFVv4x5yfMXXRvDbT/fUB7b5Ot5mrCHf8OQ34EUDXjTgRQNeNOBFA1404EUDXjTgRQNeNOBFA1404EUDXjTgRQNeNOBFA1404EUDXjTgRQN+29zk++odB/y29c///Ez/gzSOA37XwuKnvRwH/C6b/3+B34DfNf+71BIP/K7Vj///krrkgW8LP4O4tPi/H7kNeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjRgBcNeNGAFw140YAXDXjRgBftD2DDQerTRv4eAAAAAElFTkSuQmCC" alt="plot of chunk unnamed-chunk-1"/></p>
+</div>
+
+
+<pre style="background-color: lightyellow;"><code>x = sort(x) # On ordonne x avant de faire un plot classique
+y = log(x^2 + 1/x^2)
+# plot classique en une seule ligne continue 
+plot(x, y, main=&quot;y=ln(x^2+1/x^2)&quot;, type=&quot;l&quot;, col=&quot;blue&quot;)
+</code></pre>
+
+<div style="background-color: #FFEFD5;">
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/></p>
+</div>
+
+
+<pre style="background-color: lightyellow;"><code>#####################
+x = rnorm(1000) # 500 r&eacute;els aleatoire suivant la loi normale
+# Leur moyenne doit etre proche de zero
+mean(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  [1] 0.02708437
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># Leur histogramme
+hist(x, freq=F, nclass=20, main=&quot;Loi normale N(0,1)&quot;, col=&quot;blue&quot;, xlim=c(-3, 3), ylim=c(0, 0.5))
+# Ajout d&#39;une option mettant en valeur la densite&#39;
+rug(x)
+</code></pre>
+
+<pre><code style="display: block; border: 1px solid #EAEAEA; border-left: 5px solid #418AB5;">  Warning in rug(x): some values will be clipped
+</code></pre>
+
+<pre style="background-color: lightyellow;"><code># La fonction densit&eacute; theorique est 
+# la fonction g(x)=exp(-x ^2/2)/sqrt(2*pi) 
+g = function(x){ exp(-x^2/2)/sqrt(2*pi) } 
+# Cette fonction &eacute;tant tres utilis&eacute;e en statistiques,
+# sous R, g(x)  s&#39;appelle dnorm(x)
+# Ajout du graphe de la densit&eacute; en pointill&eacute;s
+x = sort(x) # On ordonne avant de faire un plot classique
+y = g(x)
+lines(x, y, col=&quot;red&quot;, lty=2, lwd=3) # plot classique
+</code></pre>
+
+<div style="background-color: #FFEFD5;">
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAilBMVEUAAAAAADoAAGYAAP8AOjoAOpAAZpAAZrY6AAA6ADo6AGY6Ojo6OpA6ZrY6kNtmAABmADpmAGZmZgBmZjpmZmZmtv+QOgCQOjqQOmaQkGaQtpCQ29uQ2/+2ZgC2tma225C2/7a2///bkDrbtmbb25Db/7bb/9vb////AAD/tmb/25D//7b//9v////KrBU7AAAACXBIWXMAAAsSAAALEgHS3X78AAASI0lEQVR4nO2di3rjthFG4XXdVdOtvWlrp22sNqteTEnW+79&eacute;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&eacute;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&eacute;e3D
+ 5afv2ry/GcavQnlv3r/3q7AcTX9T79HV7+ev399vlD+8&eacute;e3D2eOMVN4r57L3f1v1rvz77QQ/1Pm/6c7HbR483/fHhH9s3X9wS6tVkvbYeoPa3tdkPKt6vzVTvew88zF2+fRBuvcJz+3Qt/nJ48Nvzz7dnvx3YnvriXmBi8Z61X5v9IOKPxpTvtq2pq8pfX7bWvN6+6Ba/vfbtGlbtf9jLOZ+z1OXgd4rzSr33Od6/V+9b+5XZDybe92AZoOYeqS+Os549FC/xvrVfn/1wLf5kjM85/lTeDOJVfcHX8d61X519jNwpBeKVAvFKgXilQLxSIF4pEK8UiFcKxCsF4pUC8UqBeKVAvFIgXikQrxSIVwrEKwXilQLxSoF4pUC8UiBeKRBfcfT+Xr0wIL7i+vNvjjlUEwPia07G9941WUB8jd9DGeQB8TXHv6o6xUN8zeXb/35R1eQhvqR4Bo5rovS0gHilQLxSIF4pEK8UiFcKxCsF4pUC8UqBeKVAvFIgXikQrxSIVwrEKwXilQLxSoF4pUC8Uv4PeC3d7rnCJ2kAAAAASUVORK5CYII=" alt="plot of chunk unnamed-chunk-1"/></p>
+</div>
+
+
+<pre style="background-color: lightyellow;"><code># Line type lty=2 (pointill&eacute;s, pour continue c&#39;est lty=1).
+# Line wide lwd=3 (grosseur)
+##########################
+#   Graphes math&eacute;matiques (plot classique en ligne continue)
+f = function(x,m,s){ exp(-(x - m)^2/(2*s^2))/(s*sqrt(2*pi)) }
+# Cette fonction etant tres utilis&eacute;e en statistiques,
+# sous R, f(x,m,s)  s&#39;appelle dnorm(x, mean=m, sd=s)
+x = seq(-3, 3, by=0.05) # x est ordonn&eacute;
+y = f(x,0,1)
+z = f(x,1,1)
+w = f(x,0,2)
+plot(x, y, type=&quot;l&quot;, xlim=c(-3,3), ylim=c(0,0.5), col=&quot;blue&quot;, ylab=&quot;&quot;)
+#   Ajout de 2 autres graphes
+points(x, z, type=&quot;l&quot;, col=&quot;gr&eacute;en&quot;)
+points(x, w, type=&quot;l&quot;, col=&quot;red&quot;)
+title(&quot;Trois gaussiennes&quot;)
+legend(&quot;topleft&quot;, legend=c(&quot;(m,s)=(0,1)&quot;, &quot;(m,s)=(1,1)&quot;, &quot;(m,s)=(0,2)&quot;), lty=1, col=c(&quot;blue&quot;, &quot;gr&eacute;en&quot;, &quot;red&quot;)) 
+</code></pre>
+
+<div style="background-color: #FFEFD5;">
+<p><img src="data:image/png;base64,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&eacute;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" alt="plot of chunk unnamed-chunk-1"/></p>
+</div>
+
+
+<pre style="background-color: lightyellow;"><code>#############################
+</code></pre>
+
+<br />
+<br />
+<hr />
+<br />
+ <SCRIPT>
+ function Tableau(n) {
+    this.length=n;
+    return this; }
+
+ function DateModif()
+ {
+    NomMois    =new Tableau(12);
+    NomMois[1] ="Janvier";
+    NomMois[2] ="F&eacute;vrier";
+    NomMois[3] ="Mars";
+    NomMois[4] ="Avril";
+    NomMois[5] ="Mai";
+    NomMois[6] ="Juin";
+    NomMois[7] ="Juillet";
+    NomMois[8] ="Ao&ucirc;t";
+    NomMois[9] ="Septembre";
+    NomMois[10]="Octobre";
+    NomMois[11]="Novembre";
+    NomMois[12]="D&eacute;cembre";
+    Date       =new Date(document.lastModified);
+    var Mois   =NomMois[Date.getMonth()+1];
+    var Annee  =Date.getYear()+1900;
+    return Date.getDate()+" "+Mois+" "+Annee;
+ }
+</SCRIPT>
+
+<B>
+<h3> <FONT COLOR="red">
+<SCRIPT>
+  document.write("Derni&egrave;re modification : "+ DateModif())
+</SCRIPT>
+</FONT> </h3>
+</B>
+
+<br />
+<hr />
+
+
+
+
+</body>
+
+</html>
