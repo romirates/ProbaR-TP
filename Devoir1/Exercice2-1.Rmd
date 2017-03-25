@@ -1,0 +1,76 @@
+---
+output:
+  pdf_document:
+    keep_tex: yes
+  html_document: default
+params:
+  nbtest: 500
+---
+```{r include = FALSE }
+set.seed(7486)
+f = function(m, n)
+{ x = 1:n
+   v = sample(x, m, replace=FALSE)
+   teste = ( v == sort(v)) # sort(v) ordonne v
+   z = 0
+   if ( m == sum(teste)) { z = 1}
+   return( z )
+   }
+simuleV = function(N, m, nV)
+{ NV = rep(0, N)
+   nL = length(nV)
+   xV = rep(0, nL)
+   for (i in 1:nL){
+       for (k in 1:N){ NV[k] = f(m, nV[i])}
+       xV[i] = sum(NV)/N }
+   return(xV)
+  }
+```
+Exercice 2
+==================
+
+pour N = `r params$nbtest`
+
+```{r include = FALSE }
+N <- params$nbtest
+mV <- 2:8
+pV <- 0*mV
+l<- length(mV)
+nV <- 10:30
+
+for(i in 1:l){pV[i] <- mean(simuleV(N, mV[i], nV))}
+P<-1/factorial(mV)
+
+maxErreur<-max(abs(pV-P))
+moyErreur<-mean(abs(pV-P))
+```
+---------------------------
+>soit A = "m numéro sur n dans le bon ordre"
+
+>$\Omega$ = "ensemble des suite ordonnée de m éléments sur n"
+
+>$\Omega$ = {(a1,..,am), i,j$\in${1,..,n} ai$\ne$aj pour i$\ne$j}
+
+>pour chaque sous partie de m éléments d’un ensemble à n éléments, il une façon de ranger dans le bon ordre les éléments.
+
+>Donc on cherche pour A le nombre de suite avec m éléments dans le bon ordre comme il y en a une par sous partie à m élément de n
+
+>on a $|A|=C_n^{m}$
+
+>on a également $|\Omega|=A_n^{m}$
+
+>on a donc bien par simplification $P(A)=|A|/|\Omega|=1/m!$
+
+```{r echo = FALSE, fig.cap="Probabilité de m numéro sur n dans le bon ordre"}
+plot(mV, pV, xlab = "Taille de la suite d'entier ordonée", ylab ="rouge : proba exp. /bleu proba théo.)", col="red")
+points(mV,P, col="blue")
+```
+
+>>Moyenne de $|pV-P|$ : $`r moyErreur`$.
+
+>Définie la moyenne de la différence entre la théorie et l'expérience, elle est faible donc l'expérience est proche de la théorie
+
+>>Max de  $|pV-P|$ : $`r maxErreur`$.
+
+>Maximum de l'erreur entre la théorie et l'expérience
+

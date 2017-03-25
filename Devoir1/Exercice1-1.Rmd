@@ -1,0 +1,74 @@
+---
+title: Devoir TP1 proba
+author: "Romain Ferrand, 149E"
+output:
+  pdf_document: 
+    keep_tex: yes
+  html_document: default
+  
+params:
+  nbtest: 1000
+---
+```{r include = FALSE }
+set.seed(7486)
+p = function(n) 
+{ x = 1:5
+  return( prod(n - x)/(n^5) )
+}
+g = function(n)
+{ x = 1:n
+  z = 0
+  v = sample(x, 6, replace=TRUE)
+   if ( 6 == length(unique(v)) ) { z = 1}
+  return( z )
+}
+simule = function(N, n)
+{ NV = rep(0, N)
+  x = 0
+  for (k in 1:N){ NV[k] = g(n)}
+  x = sum(NV)/N
+  return(x)
+}
+```
+Exercice 1 
+-------------
+
+pour N = `r params$nbtest`
+
+```{r include = FALSE }
+N <- params$nbtest
+nV <- 10:99
+L <- length(nV)
+xV <- 0*nV # Initialisation
+yV <- 0*nV # Initialisation
+
+#Changer le xV avec for (i in 1 :L) pour que xV[i] soit simule(N, nV[i])
+for(i in 1:L){xV[i] = simule(N,nV[i])}
+
+#Changer yV avec for (i in 1 :L) pour que yV[i] soit la probabilité exacte p(nV[i])
+for(i in 1:L){yV[i] = p(nV[i])}
+```
+
+```{r echo = FALSE, fig.cap="Probabilité de 6 valeurs distinctes parmi n"}
+#Faire un plot de (nV,xV) en bleu et de (nV,yV) en rouge dans la même figure.
+plot(nV,xV, xlab = "n : cardinal de l'ensemble", ylab = "rouge : proba théo./bleu : proba exp.", col="blue")
+points(nV,yV, col="red")
+m<- mean(xV-yV)
+```
+---------------------------
+>On détermine la probabilité de tirer 6 numéros distincts sur n avec remise :
+>le nombre succès est égal au nombre de suite de 6 nombres distincts sur n, ce qui correspond à un arrangement de 6 parmi n: $A_n^{6}$ 
+>le nombre total de suite de 6 nombres est égale à $n^{6}$ car on a n possibilité pour 6 nombres
+>ainsi comme $A_n^{6}=n(n-1)(n-2)(n-3)(n-4)(n-5)$
+
+>on a bien :
+>$P(n)=n(n-1)(n-2)(n-3)(n-4)(n-5)/n^{6}=(n-1)(n-2)(n-3)(n-4)(n-5)/n^{5}$
+
+>>Moyenne de $(xV-yV)$ : $`r m`$.
+
+>Définie la moyenne de la différence entre la théorie et l'expérience, cette différence est faible on est donc proche de la théorie
+
+>>Moyenne de $(xV-yV-m)^{2}$, variance de $(xV-yV)$ : $`r mean((xV-yV-m)^2)`$.
+
+>Définie l'écart à la moyenne de la différence entre la théorie et l'expérience, on remarque que cette valeur étant faible, la dispertion de "xV-yV" est donc faible 
+
