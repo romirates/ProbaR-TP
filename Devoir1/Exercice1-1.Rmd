@@ -1,13 +1,12 @@
 ---
-title: Devoir TP1 proba
+title: "Devoir TP1 proba"
 author: "Romain Ferrand, 149E"
-output:
-  pdf_document: 
-    keep_tex: yes
-  html_document: default
-  
 params:
   nbtest: 1000
+output:
+  html_document: default
+  pdf_document:
+    keep_tex: yes
 ---
 ```{r include = FALSE }
 set.seed(7486)
