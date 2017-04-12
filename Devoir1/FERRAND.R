@@ -134,12 +134,12 @@ N<-1500
 for(i in 1:l){pV[i] <- mean(simuleV(N, mV[i], nV))}
 
 #Calculer le maximum de erreurs en valeurs absolues max(|pV - P|)
-maxErreur<-max(abs(pV-p))
+maxErreur<-max(abs(pV-P))
 
 # Tracer en bleu les points(mV[i], pV[i]) et y ajouter en rouge la courbe (x,y)=(mV, P).
 plot(mV, pV, xlab = "Taille de la suite d'entier ordonée", ylab ="Probabilité de la suite (rouge : proba exp. /bleu proba théo.)", col="red")
 points(mV,P, col="blue")
 
 #Calculer la moyenne des erreurs |pV[i] -P[i]|
-moyErreur<-mean(abs(pV-p))
+moyErreur<-mean(abs(pV-P))
 

@@ -61,19 +61,34 @@ res_SR<-sample(X,10,replace=F)
 # des lois binomiales et hyperg ́eom ́etriques correpondantes (on utilisera les fonctions dbinom et dhyper).
 comptage = function (nBlanches,remise,nbTest)
 {
+  reTab<-rep(0,length(nBlanches))
   n<-c(rep(1,5),rep(0,10))
-  cpt=0
-  for(i in 1:nbTest)
-  {
-    x<-sample(n,10,replace=remise)
-    if(sum(x)==nBlanches){cpt<-cpt+1}
+  for(j in nBlanches){
+      cpt=0
+      for(i in 1:nbTest)
+      {
+        x<-sample(n,10,replace=remise)
+        if(sum(x)==j){cpt<-cpt+1}
+      }
+  reTab[j+1]<-(cpt/nbTest)
   }
-  return (cpt/nbTest)
+  return(reTab)
 }
+#avec remise
 #probabilité théorique, probabilité d'avoir k boules blanches parmi
 # 15 boules : 5 blanches, 10 noires, la probabilité d'avoir une boules blanches avec remise est donc 1/3
 # donc on a P(X = k) = (k parmi 10)*1/3^k*2/3^(10-k)
 #k va de 0 à 5
 k<-0:5
 theo_AR<-dbinom(k,10,1/3)
+exp_AR<-rep(0,length(k))
 exp_AR<-comptage(k,TRUE,500)
+
+#sans remise 
+#Probabilité théorique, on a une population totale de 15 boules, 
+#soit les 5 boules blanches la sous population étudié
+#soit 10 la taille de l'échantillon 
+#on a ici une loi hypergéométrique X~H(15,5,10)
+theo_SR<-dhyper(k,15,5,10)
+exp_SR<-rep(0,length(k))
+exp_SR<-comptage(k,FALSE,500)
